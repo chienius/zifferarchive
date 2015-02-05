@@ -2,8 +2,40 @@ doctype html
 html(lang="zh-Hans")
     head
         title Ziffer Projekt Archive
-        link(rel='stylesheet', href='css/style.css')
         meta(charset="utf-8")
+        link(rel='stylesheet', href='css/style.css')
+        link(rel='stylesheet', href='css/font-awesome.min.css')
+        link( rel='stylesheet', href='http://fonts.useso.com/css?family=Playball|Julius+Sans+One' )
 
     body
+        script(src='js/jquery.min.js')
+        script(src='js/angular.min.js')
+        script(src='js/global.js')
 
+        .container
+            .logo
+                h1 Ziffer Projekt 
+                h2 
+                    span Archive | 
+                    span 归档
+
+
+            .track(onclick='$(this).toggleClass("active")')
+                .track-box
+                    .track-front 
+                        img(src='images/covers/01.jpg')
+                        .track-info 
+                            .name 回梦游仙
+                            .artist 骆集益
+                            .origin 仙剑奇侠传4
+                    .track-back 
+                        .track-staff
+                            .noter Peter
+                            .proofer Peter, Archie, Udon
+                            .maker Archie
+                            .format PDF
+                        .track-download
+                            img(src='images/covers/01.jpg')
+                            .hover
+                            .download
+                                i.fa.fa-download

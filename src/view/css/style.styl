@@ -1,0 +1,203 @@
+mainFont = "Playball"
+subMainFont = "Julius Sans One"
+
+track-box-face()
+    width: 100%;
+    height: 100%;
+    border: 1px #ccc solid;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    background: #f7f7f7;
+    background: rgba(255, 255, 255, arguments);
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+    transition: transform 1s;
+
+
+body, html 
+    padding         0
+    margin          0
+    font-size       12px
+    font-family     "华文细黑", "微软雅黑Light", "微软雅黑", "黑体", "Arial"
+    width           100%
+    height          100%
+    background      #eee;
+    color: #222;
+
+*
+    box-sizing: border-box;
+
+
+
+.container
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+
+    .logo
+        height: 150px;
+        width: 100%;
+        padding-top: 20px;
+        text-align: center;
+        font-size: 150%;
+
+        h1
+            margin: 0;
+            padding: 0;
+            font-weight: 400;
+            font-size: 300%;
+            font-family: mainFont;
+
+        h2
+            margin: 8px;
+            padding: 0;
+            font-weight: 400;
+            font-size: 160%;
+            color: #50558b;
+
+            span:first-child
+                font-family: subMainFont;
+
+    .track
+        position: relative;
+        margin: 0;
+        padding: 20px;
+        width: 400px;
+        height: 200px;
+        float: left;
+
+        .track-box
+            width: 100%;
+            height: 100%;
+            position: relative;
+            perspective: 600px;
+
+            .track-front
+                border-radius: 130px 0 0 130px;
+                track-box-face: 0.6;
+                cursor: pointer;
+
+                img
+                    height: 168px;
+                    border: 2px solid #eee;
+                    border-radius: 180px;
+                    margin-top: -5px;
+
+                .track-info
+                    position: absolute;
+                    top: 30px;
+                    left: 190px;
+                    width: 150px;
+
+                .name, .artist, .orgin
+                    width: 100%;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    margin-bottom: 10px;
+
+                .name
+                    font-size: 200%;
+                    font-variant: small-caps;
+
+                .artist
+                    font-size: 150%;
+
+                .origin
+                    color: #666;
+
+                .origin:before
+                    color: #aaa;
+                    font-style: italic;
+                    content: "来源: ";
+
+            .track-back
+                position: absolute;
+                top: 0;
+                track-box-face 0.8
+                transform: rotateY(180deg);
+
+                .track-staff
+                    position: absolute;
+                    width: 150px;
+                    left: 20px;
+                    top: 30px;
+                    font-size: 120%;
+                    line-height: 1.5;
+                    color: #555;
+
+                    *
+                        overflow: hidden;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+
+                    *:before
+                        color: #aaa;
+                        font-style: italic;
+                        font-size: 80%;
+
+                    .noter:before
+                        content: "记谱: ";
+
+                    .proofer:before
+                        content: "校对: ";
+
+                    .maker:before
+                        content: "制谱: ";
+
+                    .format:before
+                        content: "格式: ";
+
+                .track-download
+                    position: absolute;
+                    right: 0;
+                    top: 0;
+                    width: 160px;
+                    height: 158px;
+                    background: #eee;
+                    overflow: hidden;
+                    cursor: pointer;
+
+                    *
+                        transition: all 0.5s;
+
+                    img
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        height: 200px;
+
+                    .hover
+                        position: absolute;
+                        top: 0;
+                        width: 100%;
+                        height: 100%;
+                        background-color: rgba(0, 0, 0, 0.7);
+
+                    .download
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        font-size: 60px;
+                        color: #f8f8f8;
+
+                .track-download:hover
+                    img
+                        height: 160px;
+
+                    .hover
+                        background-color: rgba(255, 255, 255, 0.5);
+
+                    .download
+                        color: #020202;
+
+
+
+    .track.active
+        .track-box
+            .track-front
+                transform: rotateY(-180deg);
+            .track-back
+                transform: rotateY(0deg);
+
