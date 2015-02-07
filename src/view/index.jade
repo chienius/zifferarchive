@@ -19,15 +19,15 @@ html(lang="zh-Hans" ng-app="zifferArchive")
                     span 归档
 
 
-            .track(ng-repeat="track in tracks" ng-class="{active: track.pos}" ng-init="track.pos=0")
+            .track(ng-repeat="track in tracks" ng-class="{active: curState.track===track._id}")
                 .track-box
-                    .track-front(ng-click="track.pos=1")
+                    .track-front(ng-click="curState.track=track._id")
                         img(ng-src='images/covers/{{track._id}}.jpg')
                         .track-info 
                             .name(title="{{track.name}}") {{track.name}}
                             .artist(title="{{track.artist}}") {{track.artist}}
                             .origin(title="{{track.origin}}") {{track.origin}}
-                    .track-back(ng-mouseleave="track.pos=0")
+                    .track-back(ng-mouseleave="curState.track=-1")
                         .track-staff
                             .noter {{track.workStaff.noter.join(', ')}}
                             .proofer {{track.workStaff.proofer.join(', ')}}
@@ -38,5 +38,5 @@ html(lang="zh-Hans" ng-app="zifferArchive")
                             .hover
                             .download
                                 i.fa.fa-download
-                        .back-btn(ng-click="track.pos=0")
+                        .back-btn(ng-click="curState.track=-1")
                             i.fa.fa-reply
