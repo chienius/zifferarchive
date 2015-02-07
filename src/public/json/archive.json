@@ -9,7 +9,8 @@
             "maker": ["Archie"],
             "proofer": ["Peter", "Archie"]
         },
-        "format": "pdf"
+        "format": "pdf",
+        "filename": "huimeng.pdf"
     },
     {
         "_id": 2,
@@ -21,7 +22,8 @@
             "maker": ["Archie"],
             "proofer": ["Xu", "Peter", "Archie"]
         },
-        "format": "pdf"
+        "format": "pdf",
+        "filename": "tsuna.pdf"
     },
     {
         "_id": 3,
@@ -33,7 +35,8 @@
             "maker": ["Archie"],
             "proofer": ["Archie"]
         },
-        "format": "pdf"
+        "format": "pdf",
+        "filename": "everlasting.pdf"
     },
     {
         "_id": 4,
@@ -45,7 +48,8 @@
             "maker": ["Archie"],
             "proofer": ["Archie"]
         },
-        "format": "pdf"
+        "format": "pdf",
+        "filename": "hate.pdf"
     },
     {
         "_id": 5,
@@ -57,7 +61,8 @@
             "maker": ["Archie"],
             "proofer": ["Xu", "Archie"]
         },
-        "format": "pdf"
+        "format": "pdf",
+        "filename": "hajimari.pdf"
     }
 
 ]

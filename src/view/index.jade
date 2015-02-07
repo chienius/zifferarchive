@@ -32,7 +32,7 @@ html(lang="zh-Hans" ng-app="zifferArchive")
                             .proofer {{track.workStaff.proofer.join(', ')}}
                             .maker {{track.workStaff.maker.join(', ')}}
                             .format {{track.format.toUpperCase()}}
-                        .track-download
+                        .track-download(ng-click="startDownload(track.filename)")
                             img(ng-src='images/covers/{{track._id}}.jpg')
                             .hover
                             .download
@@ -43,3 +43,4 @@ html(lang="zh-Hans" ng-app="zifferArchive")
         .bg-hover
             img.ng-hide-animate(ng-repeat="track in tracks" ng-src="{{'images/bgs/'+ track._id +'.jpg'}}" ng-class="{'full-height': getImgClass()}" ng-show="curState.track === track._id")
             .hover
+

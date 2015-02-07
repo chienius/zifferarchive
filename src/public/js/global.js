@@ -16,13 +16,7 @@ app.controller("TrackListController", ["$scope", "$http", function($scope, $http
         else
             return 0; 
     };
-}]);
-
-app.filter("getBg", function(){
-    return function(trackId){
-        if(trackId > 0)
-            return "images/bgs/" + trackId.toString() + ".jpg";
-        else
-            return $('.bg-hover img').attr('src');
+    $scope.startDownload = function(filename){
+        var downWindow = window.open('sheets/'+filename);
     };
-});
+}]);
