@@ -9,9 +9,8 @@ html(lang="zh-Hans" ng-app="zifferArchive")
         script(src='js/angular.min.js')
         script(src='js/global.js')
 
-    body
-
-        .container(ng-controller="TrackListController")
+    body(ng-controller="TrackListController" ng-style="{'background-image': 'url(./images/covers/'+curState.track+'.jpg)'}")
+        .container
             .logo
                 h1 Ziffer Projekt 
                 h2 
