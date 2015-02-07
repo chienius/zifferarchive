@@ -23,6 +23,7 @@ app.controller("TrackListController", ["$scope", "$http", function($scope, $http
     $scope.curState = curState;
     $scope.openSearch = 0;
     $scope.query = '';
+    $scope.showIntro = 0;
 
     $scope.getImgClass = function(){
         if( window.innerHeight > window.innerWidth )

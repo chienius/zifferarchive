@@ -82,6 +82,7 @@ body, html
             font-weight: 400;
             font-size: 300%;
             font-family: mainFont;
+            cursor: pointer;
 
         h2
             margin: 8px;
@@ -126,6 +127,39 @@ body, html
 
             span.ng-hide
                 opacity: 0;
+
+        .intro
+            position: absolute;
+            width: 300px;
+            left: 50%;
+            top: 25px;
+            transform: translate(50%, 0);
+            padding: 5px;
+            margin-left: 30px;
+            //border: 1px #ccc solid;
+            text-align: left;
+            font-size: 12px;
+            text-shadow: none;
+            line-height: 1.8;
+            background: rgba(255, 255, 255, 0.8);
+            color: #666;
+            transition: opacity .2s;
+
+            span
+                font-family: mainFont;
+                font-size: 120%;
+
+            i
+                position: absolute;
+                left: -11px;
+                top: 50%;
+                transform: translate(0, -50%);
+                color: rgba(255, 255, 255, 0.8);
+                font-style: normal;
+                font-size: 12px;
+
+            i:before
+                content: "◀";
 
     .search
         position: absolute;

@@ -14,11 +14,13 @@ html(lang="zh-Hans" ng-app="zifferArchive")
     body(ng-controller="TrackListController")
         .container
             .logo
-                h1 Ziffer Projekt 
+                h1(ng-click="curState.track=-1" ng-mouseenter="showIntro=1" ng-mouseleave="showIntro=0") Ziffer Projekt 
                 h2 
                     span.ng-hide-animate(ng-show="!openSearch") Archive | 
                     span.ng-hide-animate(ng-show="!openSearch") 归档
                     i.fa.fa-search(ng-class="{active: openSearch}", ng-click="toggleSearch()")
+                .intro(ng-show="showIntro" ng-mouseenter="showIntro=1") <span>Ziffer Project</span> 是一项ACG简谱制作项目，这里留存此项目的归档曲谱。
+                    i
 
             .search.ng-hide-animate(ng-show="openSearch" ng-model="query")
                 input.search-box(type="text", placeholder="搜索..." ng-model="query")
