@@ -1,0 +1,3 @@
+#!/bin/bash
+
+convert ./covers/$1.jpg -blur 0x6 -colorspace gray -brightness-contrast -30%  ./bgs/$1.jpg

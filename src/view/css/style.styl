@@ -17,17 +17,35 @@ body, html
     padding         0
     margin          0
     font-size       12px
-    font-family     "华文细黑", "微软雅黑Light", "微软雅黑", "黑体", "Arial"
+    font-family     "华文细黑", "微软雅黑Light", "微软雅黑", "黑体", "Arial", sans-serif
     width           100%
     height          100%
     background      #eee
     background-size: cover;
+    background-attachment: fixed;
     color: #222;
 
 *
     box-sizing: border-box;
 
 
+.bg-hover
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 0;
+    transition: opacity 2s;
+
+    img
+        width: 100%;
+
+    img.full-height
+        height: 100%;
+        width: auto;
+
+.bg-hover.ng-hide
+    opacity: 0;
 
 .container
     max-width: 800px;
@@ -35,6 +53,7 @@ body, html
     position: relative;
     margin-bottom: 60px;
     clear: both;
+    z-index: 1;
 
     .logo
         height: 150px;
@@ -42,6 +61,7 @@ body, html
         padding-top: 20px;
         text-align: center;
         font-size: 150%;
+        text-shadow: 0px 0px 100px #000;
 
         h1
             margin: 0;

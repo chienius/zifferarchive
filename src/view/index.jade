@@ -9,7 +9,7 @@ html(lang="zh-Hans" ng-app="zifferArchive")
         script(src='js/angular.min.js')
         script(src='js/global.js')
 
-    body(ng-controller="TrackListController" ng-style="{'background-image': 'url(./images/covers/'+curState.track+'.jpg)'}")
+    body(ng-controller="TrackListController")
         .container
             .logo
                 h1 Ziffer Projekt 
@@ -39,3 +39,6 @@ html(lang="zh-Hans" ng-app="zifferArchive")
                                 i.fa.fa-download
                         .back-btn(ng-click="curState.track=-1")
                             i.fa.fa-reply
+
+        .bg-hover.ng-hide-animate(ng-show="curState.track>0")
+            img(ng-src='{{curState.track | getBg}}' ng-class="{'full-height': getImgClass()}")
