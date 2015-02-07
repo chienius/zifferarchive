@@ -45,6 +45,9 @@ html(lang="zh-Hans" ng-app="zifferArchive")
                                 i.fa.fa-download
                         .back-btn(ng-click="curState.track=-1")
                             i.fa.fa-reply
+            .footer &copy; 2014 Archie.
+                br
+                big(title="SPECIAL THANKS: Peter, Udon.") &hearts;
 
         .bg-hover
             img.ng-hide-animate(ng-repeat="track in tracks" ng-src="{{'images/bgs/'+ track._id +'.jpg'}}" ng-class="{'full-height': getImgClass()}" ng-show="curState.track === track._id")
