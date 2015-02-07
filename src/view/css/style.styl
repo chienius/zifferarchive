@@ -45,6 +45,7 @@ body, html
         -webkit-transform: translate(-50%, -50%);
         width: 100%;
         transition: opacity 2s .5s;
+        opacity: 1;
 
     img.full-height
         height: 100%;
@@ -91,8 +92,66 @@ body, html
             color: #50558b;
             text-shadow: none;
 
+            i.fa
+                position: absolute;
+                font-size: 18px;
+                line-height: 32px;
+                margin-left: 20px;
+                margin-top: -1px;
+                width: 34px;
+                height: 34px;
+                text-align: center;
+                border: 1px #ccc solid;
+                background: rgba(143, 112, 147, 0.5);
+                transition: all 0.2s;
+                cursor: pointer;
+                color: #fff;
+                z-index: 3;
+
+            i.fa:hover
+                color: #eee;
+
+            i.fa.active
+                margin-left: -34px;
+                background: rgba(255, 255, 255, 0);
+                color: #888;
+                border: none;
+            i.fa.active:hover
+                color: #333;
+            i.fa.active:before
+                content: "";
+
+
             span:first-child
                 font-family: subMainFont;
+
+            span.ng-hide
+                opacity: 0;
+
+    .search
+        position: absolute;
+        top: 84px;
+        left: 50%;
+        transform: translate(-50%, 0);
+        -webkit-transform: translate(-50%, 0);
+        width: 204px;
+        margin: 10px auto;
+        
+        input.search-box
+            width: 100%;
+            border: 1px solid #ccc;
+            background: rgba(255, 255, 255, 0.6);
+            height: 34px;
+            font-size: 20px;
+            line-height: 32px;
+            color: #8f7093;
+            transition: all .5s;
+        input.search-box:focus
+            background: rgba(255, 255, 255, 0.8);
+
+    .search.ng-hide
+        opacity: 0;
+        z-index: -1;
 
     .track
         position: relative;

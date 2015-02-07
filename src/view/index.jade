@@ -7,6 +7,7 @@ html(lang="zh-Hans" ng-app="zifferArchive")
         link(rel='stylesheet', href='css/style.css')
         link(rel='stylesheet', href='css/font-awesome.min.css')
         link(rel='stylesheet', href='http://fonts.useso.com/css?family=Playball|Julius+Sans+One')
+        script(src='js/jquery.min.js')
         script(src='js/angular.min.js')
         script(src='js/global.js')
 
@@ -15,11 +16,15 @@ html(lang="zh-Hans" ng-app="zifferArchive")
             .logo
                 h1 Ziffer Projekt 
                 h2 
-                    span Archive | 
-                    span 归档
+                    span.ng-hide-animate(ng-show="!openSearch") Archive | 
+                    span.ng-hide-animate(ng-show="!openSearch") 归档
+                    i.fa.fa-search(ng-class="{active: openSearch}", ng-click="toggleSearch()")
+
+            .search.ng-hide-animate(ng-show="openSearch" ng-model="query")
+                input.search-box(type="text", placeholder="搜索..." ng-model="query")
 
 
-            .track(ng-repeat="track in tracks" ng-class="{active: curState.track===track._id}")
+            .track(ng-repeat="track in tracks|searchTrack:query" ng-class="{active: curState.track===track._id}")
                 .track-box
                     .track-front(ng-click="curState.track=track._id")
                         img(ng-src='images/covers/{{track._id}}.jpg')
