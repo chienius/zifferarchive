@@ -10,7 +10,7 @@ track-box-face()
     background: rgba(255, 255, 255, arguments);
     backface-visibility: hidden;
     transform-style: preserve-3d;
-    transition: transform 1s;
+    transition: transform 1s, opacity 1s;
 
 
 body, html 
@@ -150,6 +150,8 @@ body, html
                 top: 0;
                 track-box-face 0.8
                 transform: rotateY(180deg);
+                opacity: 0;
+                z-index: -1;
 
                 .track-staff
                     position: absolute;
@@ -188,7 +190,6 @@ body, html
                     top: 0;
                     width: 160px;
                     height: 158px;
-                    background: #eee;
                     overflow: hidden;
                     cursor: pointer;
 
@@ -251,6 +252,10 @@ body, html
         .track-box
             .track-front
                 transform: rotateY(-180deg);
+                opacity: 0;
+                z-index: -1;
             .track-back
                 transform: rotateY(0deg);
+                opacity: 1;
+                z-index: auto;
 
