@@ -65,6 +65,10 @@ module.exports = function(grunt) {
             jades: {
                 files: './src/view/*.jade',
                 tasks: ['jade:devCompile']
+            },
+            public: {
+                files: './src/public/**',
+                tasks: ['copy:devCompile']
             }
         }
 

@@ -1,18 +1,17 @@
 doctype html
-html(lang="zh-Hans")
+html(lang="zh-Hans" ng-app="zifferArchive")
     head
         title Ziffer Projekt Archive
         meta(charset="utf-8")
         link(rel='stylesheet', href='css/style.css')
         link(rel='stylesheet', href='css/font-awesome.min.css')
-        link( rel='stylesheet', href='http://fonts.useso.com/css?family=Playball|Julius+Sans+One' )
-
-    body
-        script(src='js/jquery.min.js')
+        link(rel='stylesheet', href='http://fonts.useso.com/css?family=Playball|Julius+Sans+One')
         script(src='js/angular.min.js')
         script(src='js/global.js')
 
-        .container
+    body
+
+        .container(ng-controller="TrackListController")
             .logo
                 h1 Ziffer Projekt 
                 h2 
@@ -20,22 +19,24 @@ html(lang="zh-Hans")
                     span 归档
 
 
-            .track(onclick='$(this).toggleClass("active")')
+            .track(ng-repeat="track in tracks" ng-class="{active: track.pos}" ng-init="track.pos=0")
                 .track-box
-                    .track-front 
-                        img(src='images/covers/01.jpg')
+                    .track-front(ng-click="track.pos=1")
+                        img(ng-src='images/covers/{{track._id}}.jpg')
                         .track-info 
-                            .name 回梦游仙
-                            .artist 骆集益
-                            .origin 仙剑奇侠传4
-                    .track-back 
+                            .name(title="{{track.name}}") {{track.name}}
+                            .artist(title="{{track.artist}}") {{track.artist}}
+                            .origin(title="{{track.origin}}") {{track.origin}}
+                    .track-back(ng-mouseleave="track.pos=0")
                         .track-staff
-                            .noter Peter
-                            .proofer Peter, Archie, Udon
-                            .maker Archie
-                            .format PDF
+                            .noter {{track.workStaff.noter.join(', ')}}
+                            .proofer {{track.workStaff.proofer.join(', ')}}
+                            .maker {{track.workStaff.maker.join(', ')}}
+                            .format {{track.format.toUpperCase()}}
                         .track-download
-                            img(src='images/covers/01.jpg')
+                            img(ng-src='images/covers/{{track._id}}.jpg')
                             .hover
                             .download
                                 i.fa.fa-download
+                        .back-btn(ng-click="track.pos=0")
+                            i.fa.fa-reply

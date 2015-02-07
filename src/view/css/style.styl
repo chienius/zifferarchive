@@ -32,6 +32,8 @@ body, html
     max-width: 800px;
     margin: 0 auto;
     position: relative;
+    margin-bottom: 60px;
+    clear: both;
 
     .logo
         height: 150px;
@@ -181,6 +183,24 @@ body, html
                         transform: translate(-50%, -50%);
                         font-size: 60px;
                         color: #f8f8f8;
+
+                .back-btn
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    width: 30px;
+                    height: 30px;
+                    background: rgba(0, 0, 0, 0.1);
+                    border-top-right-radius:10px;
+                    font-size: 16px;
+                    line-height: 30px;
+                    text-align: center;
+                    color: #fff;
+                    transition: background .5s;
+                    cursor: pointer;
+
+                .back-btn:hover
+                    background: rgba(0, 0, 0, 0.3);
 
                 .track-download:hover
                     img
