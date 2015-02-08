@@ -1,7 +1,0 @@
-#!/bin/bash
-
-for img in `seq 1 28`
-do
-    convert ./raw/$img.jpg -resize 170x170^ -gravity center -extent 170x170 ./covers/$img.jpg
-    convert ./raw/$img.jpg -resize 200x200^ -blur 0x2 -modulate 100,20 ./bgs/$img.jpg
-done

@@ -3,56 +3,70 @@ module.exports = function(grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
         stylus: {
-            devCompile: {
+            compile: {
                 files: {
-                    './preview/css/style.css': './src/view/css/style.styl'
+                    './build/css/style.css': './src/view/css/style.styl'
                 }
             }
         },
         jade: {
-            devCompile: {
+            compile: {
                 files: {
-                    './preview/index.html': './src/view/index.jade'
+                    './build/index.html': './src/view/index.jade'
                 }
             }
         },
         copy: {
-            devCompile: {
+            compile: {
                 files: [
                     {
                         src: './node_modules/jquery/dist/jquery.min.js', 
-                        dest: './preview/js/jquery.min.js'
+                        dest: './build/js/jquery.min.js'
                     },
                     {
                         src: './node_modules/angular/angular.min.js',
-                        dest: './preview/js/angular.min.js'
+                        dest: './build/js/angular.min.js'
                     },
                     {
                         expand: true,
                         cwd: './node_modules/font-awesome/',
                         src: 'css/**',
-                        dest: './preview'
+                        dest: './build'
                     },
                     {
                         expand: true,
                         cwd: './node_modules/font-awesome/',
                         src: 'fonts/**',
-                        dest: './preview'
+                        dest: './build'
                     },
                     {
                         expand: true,
                         cwd: './src/public',
                         src: '**',
-                        dest: './preview'
+                        dest: './build'
+                    },
+                    {
+                        expand: true,
+                        cwd: './src/raw_images',
+                        src: '*.jpg',
+                        dest: './build/images/raw'
                     }
                 ]
+            }
+        },
+        shell: {
+            genImg: {
+                command: "./genimg && rm ./build/images/raw -Rf"
+            },
+            rmBuildDir: {
+                command: "rm ./build -Rf"
             }
         },
         connect: {
             devServer: {
                 options: {
                     port: 3000,
-                    base: './preview'
+                    base: './build'
                 }
             }
         },
@@ -60,15 +74,15 @@ module.exports = function(grunt) {
         watch: {
             styles: {
                 files: './src/view/css/*.styl',
-                tasks: ['stylus:devCompile']
+                tasks: ['stylus']
             },
             jades: {
                 files: './src/view/*.jade',
-                tasks: ['jade:devCompile']
+                tasks: ['jade']
             },
             public: {
                 files: './src/public/**',
-                tasks: ['copy:devCompile']
+                tasks: ['copy']
             }
         }
 
@@ -76,10 +90,12 @@ module.exports = function(grunt) {
 
     grunt.loadNpmTasks('grunt-contrib-jade');
     grunt.loadNpmTasks('grunt-contrib-stylus');
-    grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-shell');
 
-    grunt.registerTask('dev', ['connect:devServer', 'copy:devCompile', 'jade:devCompile', 'stylus:devCompile', 'watch']);
+    grunt.registerTask('build', ['copy', 'jade', 'stylus', 'shell:genImg']);
+    grunt.registerTask('dev', ['build', 'connect', 'watch']);
+    grunt.registerTask('clean', ['shell:rmBuildDir']);
 };
