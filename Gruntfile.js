@@ -52,7 +52,7 @@ module.exports = function(grunt) {
                         dest: './build/images/raw'
                     }
                 ]
-            }
+            },
         },
         shell: {
             genImg: {
@@ -60,6 +60,9 @@ module.exports = function(grunt) {
             },
             rmBuildDir: {
                 command: "rm ./build -Rf"
+            },
+            copySheets: {
+                command: "cp ./src/sheets ./build -R"
             }
         },
         connect: {
@@ -95,7 +98,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-shell');
 
-    grunt.registerTask('build', ['copy', 'jade', 'stylus', 'shell:genImg']);
+    grunt.registerTask('build', ['copy', 'jade', 'stylus', 'shell:genImg', 'shell:copySheets']);
     grunt.registerTask('dev', ['build', 'connect', 'watch']);
     grunt.registerTask('clean', ['shell:rmBuildDir']);
 };
