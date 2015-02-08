@@ -9,7 +9,9 @@ track-box-face()
     background: #f7f7f7;
     background: rgba(255, 255, 255, arguments);
     backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
     transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
     transition: opacity 1s, transform 1s;
     -webkit-transition: opacity 1s, -webkit-transform 1s;
 
@@ -28,6 +30,9 @@ body, html
 
 *
     box-sizing: border-box;
+
+img
+    border: none;
 
 .bg-hover
     width: 100%;
@@ -134,6 +139,7 @@ body, html
             left: 50%;
             top: 25px;
             transform: translate(50%, 0);
+            -webkit-transform: translate(50%, 0);
             padding: 5px;
             margin-left: 30px;
             //border: 1px #ccc solid;
@@ -144,6 +150,7 @@ body, html
             background: rgba(255, 255, 255, 0.8);
             color: #666;
             transition: opacity .2s;
+            max-width: 240px;
 
             span
                 font-family: mainFont;
@@ -151,15 +158,13 @@ body, html
 
             i
                 position: absolute;
-                left: -11px;
+                left: -4px;
                 top: 50%;
                 transform: translate(0, -50%);
+                -webkit-transform: translate(0, -50%);
                 color: rgba(255, 255, 255, 0.8);
                 font-style: normal;
                 font-size: 12px;
-
-            i:before
-                content: "◀";
 
     .search
         position: absolute;
@@ -199,6 +204,7 @@ body, html
             height: 100%;
             position: relative;
             perspective: 600px;
+            -webkit-perspective: 600px;
 
             .track-front
                 border-radius: 130px 0 0 130px;
@@ -217,7 +223,7 @@ body, html
                     left: 190px;
                     width: 150px;
 
-                .name, .artist, .orgin
+                .name, .artist, .origin
                     width: 100%;
                     overflow: hidden;
                     white-space: nowrap;
@@ -329,6 +335,7 @@ body, html
                     color: #fff;
                     transition: background .5s;
                     cursor: pointer;
+                    z-index: 1;
 
                 .back-btn:hover
                     background: rgba(0, 0, 0, 0.3);
