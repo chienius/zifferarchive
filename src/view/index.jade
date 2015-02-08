@@ -13,7 +13,9 @@ html(lang="zh-Hans" ng-app="zifferArchive")
         script(src='js/global.js')
 
     body(ng-controller="TrackListController")
+
         .container
+
             .logo(ng-class="{active: curState.track>0}")
                 h1(ng-click="curState.track=-1" ng-mouseenter="showIntro=1" ng-mouseleave="showIntro=0") Ziffer Projekt 
                 h2 
@@ -48,6 +50,7 @@ html(lang="zh-Hans" ng-app="zifferArchive")
                                 i.fa.fa-download
                         .back-btn(ng-click="curState.track=-1")
                             i.fa.fa-reply
+
             .footer &copy; 2015 Archie.
                 br
                 big(title="SPECIAL THANKS: Peter, Udon.") &hearts;
