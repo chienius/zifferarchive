@@ -14,7 +14,7 @@ app.filter('searchTrack', function(){
 });
 
 app.controller("TrackListController", ["$scope", "$http", function($scope, $http){
-    $http
+   $http
         .get('./json/archive.json')
         .success(function(data){
             $scope.tracks=data;
@@ -47,3 +47,5 @@ app.controller("TrackListController", ["$scope", "$http", function($scope, $http
         }
     };
 }]);
+
+
