@@ -47,5 +47,3 @@ app.controller("TrackListController", ["$scope", "$http", function($scope, $http
         }
     };
 }]);
-
-
